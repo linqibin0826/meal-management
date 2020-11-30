@@ -1,0 +1,41 @@
+server:
+  port: 65500
+
+spring:
+  application:
+    name: test-bcgl
+  jackson:
+    time-zone: GMT+8
+  data:
+    redis:
+      repositories:
+        enabled: false
+  cloud:
+    sentinel:
+      transport:
+        dashboard: 192.168.0.53:8080
+    nacos:
+      discovery:
+        server-addr: 139.9.182.97:8848
+      config:
+        server-addr: 139.9.182.97:8848
+        file-extension: yaml
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///test?serverTimezone=GMT%2B8&characterEncoding=utf-8
+    username: root
+    password: 123456
+  security:
+    user:
+      password: 123456
+      name: admin
+mybatis-plus:
+  mapper-locations:
+    - classpath*:mapper/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+
+    db-column-underline: true
+
+    refresh-mapper: true
